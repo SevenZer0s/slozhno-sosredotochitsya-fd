@@ -1,5 +1,147 @@
 /* Основные стили проекта. Это стили для темы, которую вы верстаете первой. */
 
 .page {
-  /* сохраните в разметке и стилях класс page у тега body. Он удобен, чтобы составлять селекторы для разных цветовых тем. */
+  background-image: var(--bg-image);
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-color: var(--bg-color);
+  font-size: 18px;
+  font-family: 'IBM Plex mono';
+  min-block-size: 100vh;
+}
+
+.header {
+  block-size: 100vh;
+  min-block-size: 668px;
+  display: grid;
+  grid-template-rows: 1fr min-content 1fr;
+  justify-content: center;
+  position: relative;
+}
+
+.header__theme-menu {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+.header__theme-menu-list{
+  display: flex;
+  gap: 10px;
+  padding-right: 10px;
+  flex-direction: column;
+}
+
+.header__theme-menu-button {
+  background-color: transparent;
+  font-size: inherit;
+  font-weight: 400;
+  border: none;
+  text-transform: lowercase;
+  color: var(--accent-color);
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  inline-size: 100%;
+}
+
+.header__theme-menu-button_active {
+  border: 1px solid var(--accent-color);
+}
+
+.header__theme-menu {
+  grid-row: 1;
+  font-size: inherit;
+  justify-self: flex-end;
+}
+
+.header__title {
+  grid-row: 2;
+  font-size: clamp(7.25rem, 7.0115rem + 1.0178vw, 7.5rem);
+  font-family: inherit;
+  font-weight: bold;
+  text-shadow: 4px 4px 0 var(--accent-color);
+  color: var(--title-decor);
+  line-height: 83%;
+}
+
+.header__subtitle-wrapper {
+  grid-row: 3;
+  justify-self: flex-end;
+  align-self: center;
+  padding: 0 10px;
+}
+
+.header__subtitle {
+  display: inline-block;
+  color: var(--bg-color);
+  line-height: 23.4px;
+  font-family: inherit;
+  font-weight: bold;
+  font-size: inherit;
+  background-color: var(--accent-color);
+}
+
+@media (width >= 768px) {
+  .header__title {
+    font-size: clamp(7.5rem, 0.5625rem + 14.4531vw, 9.8125rem);
+  }
+}
+
+.rec {
+  position: absolute;
+  top: 10px;
+  right: 19px;
+  font-size: inherit;
+  font-weight: 400;
+  line-height: 25px;
+  color: var(--accent-color);
+  text-transform: uppercase;
+}
+
+.rec::after {
+  content: '';
+  display: inline-block;
+  width: 0.5em;
+  height: 0.5em;
+  border-radius: 50%;
+  background-color: var(--accent-color);
+  margin-left: 10px;
+  box-shadow: 0 0 4px 2px var(--accent-color);
+}
+
+.corner {
+  position: absolute;
+  inline-size: 25px;
+  block-size: 25px;
+}
+
+.corner::before {
+  content: '';
+  position: absolute;
+  inline-size: 100%;
+  block-size: 100%;
+  border: 1px solid var(--accent-color);
+}
+
+.corner__top-right {
+  top: 10px;
+  right: 10px;
+}
+
+.corner__top-right::before{
+  border-bottom: none;
+  border-left: none;
+}
+
+.corner__bottom-left {
+  bottom: 10px;
+  left: 10px;
+}
+
+.corner__bottom-left::before {
+  border-top: none;
+  border-right: none;
 }
