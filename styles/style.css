@@ -10,6 +10,7 @@
   font-size: 18px;
   font-family: 'IBM Plex mono';
   min-block-size: 100vh;
+  padding: 0 10px;
 }
 
 .header {
@@ -30,7 +31,6 @@
 .header__theme-menu-list{
   display: flex;
   gap: 10px;
-  padding-right: 10px;
   flex-direction: column;
 }
 
@@ -59,6 +59,9 @@
 
 .header__title {
   grid-row: 2;
+}
+
+.main_shadow {
   font-size: clamp(7.25rem, 7.0115rem + 1.0178vw, 7.5rem);
   font-family: inherit;
   font-weight: bold;
@@ -71,17 +74,21 @@
   grid-row: 3;
   justify-self: flex-end;
   align-self: center;
-  padding: 0 10px;
+}
+
+.title__decor {
+  display: inline-block;
+  inline-size: 100%;
+  color: var(--bg-color);
+  background-color: var(--accent-color);
+  font-size: inherit;
 }
 
 .header__subtitle {
-  display: inline-block;
-  color: var(--bg-color);
   line-height: 23.4px;
   font-family: inherit;
   font-weight: bold;
   font-size: inherit;
-  background-color: var(--accent-color);
 }
 
 @media (width >= 768px) {
@@ -93,7 +100,7 @@
 .rec {
   position: absolute;
   top: 10px;
-  right: 19px;
+  right: 9px; /* Вычитаем 10px, тк это паддинг сбоку для всей страницы */
   font-size: inherit;
   font-weight: 400;
   line-height: 25px;
@@ -128,7 +135,7 @@
 
 .corner__top-right {
   top: 10px;
-  right: 10px;
+  right: 0px;
 }
 
 .corner__top-right::before{
@@ -138,10 +145,99 @@
 
 .corner__bottom-left {
   bottom: 10px;
-  left: 10px;
+  left: 0px;
 }
 
 .corner__bottom-left::before {
   border-top: none;
   border-right: none;
+}
+
+.content-section:first-child {
+  margin-block-start: 40px; 
+}
+
+.content-section:not(:first-child) {
+  margin-block-start: 50px; /* Отступ между секциями в 50 px */
+}
+
+.content-section_title {
+  color: var(--accent-color);
+  font-size: inherit;
+  font-weight: bold;
+  line-height: 23.4px;
+  padding-block-end: 20px;
+}
+
+.content-article__title {
+  font-size: inherit;
+  font-weight: 700;
+  line-height: 23.4px;
+}
+
+.content-article__text {
+  font-family: inherit;
+  font-weight: 400;
+  line-height: 23.4px;
+  color: var(--text-color);
+  padding-block-start: 10px;
+  padding-block-end: 20px;
+}
+
+.content-article:last-child .content-article__text:last-of-type {
+  padding-block-end: 0px; /* Убираем отступ у последнего абзаца */
+}
+
+.text__shadow {
+  text-shadow: 2px 2px var(--accent-color);
+  text-decoration: none;
+}
+
+.text__shadow:hover {
+  border-bottom: 1px solid var(--text-color);
+}
+
+.text__shadow:focus {
+  outline: none;
+}
+
+.text__shadow:focus-visible {
+  outline: 1px solid var(--text-color);
+}
+
+.content-section_subtitle {
+  margin-block-end: 20px;
+}
+
+.title__decor_rules {
+  display: inline-block;
+  inline-size: 100%;
+  background-color: var(--accent-color);
+  color: var(--bg-color);
+  font-weight: 400;
+}
+
+/* .heading__gallery {
+  margin-block-end: 10px;
+} */
+
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(355px, 1fr));
+  gap: 10px;
+  margin-block-end: 40px;
+}
+
+.gallery img {
+  inline-size: 100%;
+  display: block;
+  object-fit: cover;
+}
+
+.footer {
+  block-size: 100vh;
+  min-block-size: 667px;
+  display: grid;
+  place-items: center;
+  position: relative;
 }
