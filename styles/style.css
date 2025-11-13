@@ -8,7 +8,7 @@
   background-attachment: fixed;
   background-color: var(--bg-color);
   font-size: 18px;
-  font-family: 'IBM Plex mono';
+  font-family: "IBM Plex mono";
   min-block-size: 100vh;
   padding-inline: 10px;
 }
@@ -27,7 +27,7 @@
   justify-content: flex-end;
 }
 
-.header__theme-menu-list{
+.header__theme-menu-list {
   display: flex;
   gap: 10px;
   flex-direction: column;
@@ -98,7 +98,7 @@
 }
 
 .rec::after {
-  content: '';
+  content: "";
   display: inline-block;
   width: 0.5em;
   height: 0.5em;
@@ -108,7 +108,8 @@
   box-shadow: 0 0 4px 2px var(--accent-color);
 }
 
-.theme-light .rec { /*скрываем надпись в светлой теме*/
+.theme-light .rec {
+  /*скрываем надпись в светлой теме*/
   display: none;
 }
 
@@ -119,7 +120,7 @@
 }
 
 .corner::before {
-  content: '';
+  content: "";
   position: absolute;
   inline-size: 100%;
   block-size: 100%;
@@ -131,7 +132,7 @@
   inset-inline-end: 0px;
 }
 
-.corner__top-right::before{
+.corner__top-right::before {
   border-bottom: none;
   border-left: none;
 }
@@ -146,7 +147,8 @@
   border-right: none;
 }
 
-@media (width >= 768px) { /* Медиазапросы для хедера 768px*/
+@media (width >= 768px) {
+  /* Медиазапросы для хедера 768px*/
   .page {
     padding-inline: 20px;
   }
@@ -174,11 +176,10 @@
     inset-block-end: 20px;
     inset-inline-start: 0px;
   }
-
 }
 
-
-@media (width >= 1024px) { /* Медиазапросы для хедера 1024px*/
+@media (width >= 1024px) {
+  /* Медиазапросы для хедера 1024px*/
   .header__theme-menu {
     justify-content: center;
     align-items: flex-start;
@@ -191,7 +192,7 @@
 }
 
 .content-section:first-child {
-  margin-block-start: 40px; 
+  margin-block-start: 40px;
 }
 
 .content-section:not(:first-child) {
@@ -274,7 +275,8 @@
   object-fit: cover;
 }
 
-@media (width >= 768px) { /* Медиазапросы для мейна 768px*/
+@media (width >= 768px) {
+  /* Медиазапросы для мейна 768px*/
   .content-section:nth-child(2n + 1) {
     display: grid;
     grid-template-columns: fit-content(200px) 2fr; /* фит контент для переноса слов, согласно макету */
@@ -282,7 +284,11 @@
   }
 
   .content-section_title {
-    width: clamp(200px, 25vw, 240px); /* Ограничеваем ширину слов для совпадения переноса слов с макетом */
+    width: clamp(
+      235px,
+      30vw,
+      320px
+    ); /* Ограничеваем ширину блока для совпадения переноса слов с макетом */
   }
 
   .heading__gallery {
@@ -295,14 +301,14 @@
     grid-auto-flow: dense;
   }
 
-.gallery img:nth-of-type(1) {
-    grid-column: span 2;   
+  .gallery img:nth-of-type(1) {
+    grid-column: span 2;
     grid-row: 1 / 2;
   }
 
   .gallery img:nth-of-type(2) {
     grid-column: 3;
-    grid-row: span 2; 
+    grid-row: span 2;
   }
 
   .gallery img:nth-of-type(3) {
@@ -316,7 +322,7 @@
 }
 
 @media (width >= 1024px) {
-  .content-section:nth-child(2) .article-list{
+  .content-section:nth-child(2) .article-list {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 20px;
