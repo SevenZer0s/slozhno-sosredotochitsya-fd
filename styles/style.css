@@ -178,7 +178,7 @@
   .header__subtitle-wrapper {
     inline-size: clamp(355px, 47.5vw, 491px); /* Подгонка под макет для адаптивности текста */
     justify-self: end;
-    margin-block-end: 20px;
+    margin-block-end: 20px; /*  */
   }
 
   .rec {
