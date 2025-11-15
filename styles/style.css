@@ -13,8 +13,17 @@
   padding-inline: 10px;
 }
 
+@supports (block-size: 100dvb) {
+  .header {
+    block-size: 100dvb;
+  }
+
+  .footer {
+      block-size: 100dvb;
+  }
+}
+
 .header {
-  block-size: 100vh;
   min-block-size: 668px;
   display: grid;
   grid-template-rows: 1fr min-content 1fr;
@@ -210,7 +219,7 @@
 }
 
 .content-section:first-child {
-  margin-block-start: 60px;
+  margin-block-start: 40px;
 }
 
 .content-section:not(:first-child) {
@@ -276,7 +285,7 @@
 }
 
 .heading__gallery {
-  margin-block-end: 20px;
+  margin-block-end: 10px;
 }
 
 .gallery {
@@ -291,10 +300,20 @@
   height: 100%;
   display: block;
   object-fit: cover;
+  object-position: center;
 }
+
 
 @media (width >= 768px) {
   /* Медиазапросы для мейна 768px*/
+  .content-section:first-child {
+    margin-block-start: 60px;
+  }
+
+  .content-section:not(:first-child) {
+    margin-block-start: 80px; /* Отступ между секциями в 80 px */
+  }
+
   .content-section:nth-child(2n + 1) {
     display: grid;
     grid-template-columns: fit-content(200px) 2fr; /* фит контент для переноса слов, согласно макету */
@@ -302,36 +321,40 @@
   }
 
   .content-section_title {
-    inline-size: clamp(235px, 30vw, 320px); /* Ограничеваем ширину блока для совпадения переноса слов с макетом */
+    inline-size: clamp(235px, 30.5vw, 315px); /* Ограничеваем ширину блока для совпадения переноса слов с макетом */
   }
 
   .heading__gallery {
     grid-column: 1 / -1; /* Растягиваем заголовок на всю ширину */
+    margin-block-end: 20px;
   }
 
   .gallery {
     grid-template-columns: 1fr 1fr 1fr;
     grid-auto-flow: dense;
+    margin-block-end: 60px;
   }
 
   .gallery img:nth-of-type(1) {
-    grid-column: span 2;
-    grid-row: 1 / 2;
+    grid-column: 1 / 3;
+    grid-row: 1;
   }
 
   .gallery img:nth-of-type(2) {
     grid-column: 3;
-    grid-row: span 2;
+    grid-row: 1 / 3;
   }
 
   .gallery img:nth-of-type(3) {
     grid-row: 2 / 4;
+    grid-column: 1;
   }
 
-  .gallery img:nth-of-type(4) {
+  .gallery img:nth-of-type(5) {
     grid-column: 2 / 4;
-    grid-row: span 1;
+    grid-row: 3;
   }
+
 }
 
 @media (width >= 1024px) {
@@ -347,7 +370,6 @@
 }
 
 .footer {
-  block-size: 100vh;
   min-block-size: 668px;
   display: grid;
   place-items: center;
