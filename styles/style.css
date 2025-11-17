@@ -8,7 +8,7 @@
   background-attachment: fixed;
   background-color: var(--bg-color);
   font-size: 18px;
-  font-family: "IBM Plex mono";
+  font-family: "IBM Plex mono", monospace, sans-serif;
   min-block-size: 100vh;
 }
 
@@ -95,6 +95,8 @@
   grid-row: 3;
   justify-self: flex-end;
   align-self: center;
+  margin-block-end: 10px;
+  background-color: var(--accent-color);
 }
 
 .title__decor {
@@ -362,7 +364,7 @@
 }
 
 @media (width >= 1024px) {
-  .content-section:nth-child(2) .article-list {
+  .content-section__articles .article-list {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 20px;
